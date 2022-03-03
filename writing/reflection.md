@@ -1,5 +1,11 @@
 # Data Types
 
+TODO: Please remove the TODO markers and notes from this file
+so that the final document is written in a professional fashion
+suitable for publication. If you have questions about how to
+structure, format, and write this document, please ask for a
+preliminary assessment of your work in advance of the deadline.
+
 ## Add Your Name Here
 
 ## Program Output
