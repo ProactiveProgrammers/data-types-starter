@@ -70,8 +70,9 @@ jobs:
           if: always()
           run: |
             gradle --version
-        # Run GatorGrader: see config/gatorgrader.yml
-        - name: Run GatorGrader
+        # Run GatorGrader: see config/gatorgrade.yml
+        - name: Run GatorGrader with GatorGrade
           if: always()
           run:  |
-            gradle grade
+            pip install gatorgrade
+            gatorgrade --config config/gatorgrade.yml
