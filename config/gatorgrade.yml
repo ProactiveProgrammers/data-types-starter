@@ -12,6 +12,12 @@
 - source/compare-variables.py:
     - description: Ensure that compare-variables.py file exists in the source/ directory
       check: ConfirmFileExists
+    - description: Complete all TODOs, remove the TODO markers in the demonstrate-variable-limitations.py
+      check: MatchFileFragment
+      options:
+        fragment: TODO
+        count: 0
+        exact: true
 
 # check the technical writing for various characteristics
 - writing/reflection.md:
