@@ -8,7 +8,20 @@
         fragment: TODO
         count: 0
         exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in demonstrate-variable-limitations.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 1
+        exact: false
+    - description: Create a sufficient number of single-line comments in demonstrate-variable-limitations.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
 
+# perform checks on a file
 - source/compare-variables.py:
     - description: Ensure that compare-variables.py file exists in the source/ directory
       check: ConfirmFileExists
@@ -18,6 +31,19 @@
         fragment: TODO
         count: 0
         exact: true
+    - description: Create a sufficient number of docstring (i.e., multiple-line) comments in compare-variables.py
+      check: CountMultipleLineComments
+      options:
+        language: "Python"
+        count: 1
+        exact: false
+    - description: Create a sufficient number of single-line comments in compare-variables.py
+      check: CountSingleLineComments
+      options:
+        language: "Python"
+        count: 5
+        exact: false
+
 
 # check the technical writing for various characteristics
 - writing/reflection.md:
@@ -52,3 +78,51 @@
         fragment: "Add Your Name Here"
         count: 0
         exact: true
+
+# run the program and confirm the existence of fragments in its output
+- description: Run a program and confirm the correct number of non-blank lines in the output of demonstrate-variable-limitations.py
+  check: CountCommandOutput
+  options:
+    command: "python source/demonstrate-variable-limitations.py"
+    count: 2
+    exact: true
+
+# run the program and confirm the existence of fragments in its output
+- description: Run a program and confirm the correct number of non-blank lines in the output of compare-variables.py
+  check: CountCommandOutput
+  options:
+    command: "python source/compare-variables.py"
+    count: 7
+    exact: true
+
+# run the program and confirm the existence of fragments in its output
+- description: "Run the program and confirm the existence of content in its output: is not equal"
+  check: MatchCommandFragment
+  options:
+    command: "python source/compare-variables.py"
+    fragment: "is not equal"
+    count: 2
+    exact: true
+
+# run the program and confirm the existence of fragments in its output
+- description: "Run the program and confirm the existence of content in its output: is equal"
+  check: MatchCommandFragment
+  options:
+    command: "python source/compare-variables.py"
+    fragment: "is equal"
+    count: 2
+    exact: true
+
+# run the program and confirm the existence of fragments in its output
+- description: "Run the program and confirm the existence of content in its output: 1/3"
+  check: MatchCommandFragment
+  options:
+    command: "python source/compare-variables.py"
+    fragment: "1/3"
+    count: 4
+    exact: true
+
+- description: Have at least a specific minimum of commits in repository
+  check: CountCommits
+  options:
+    count: 5
